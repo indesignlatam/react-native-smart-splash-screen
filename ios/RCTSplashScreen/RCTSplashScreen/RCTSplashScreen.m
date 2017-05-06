@@ -16,6 +16,15 @@ RCT_EXPORT_MODULE(SplashScreen)
     [RCTSplashScreen open:v withImageNamed:@"splash"];
 }
 
++ (void)openFromNib:(RCTRootView *)v {
+    rootView = v;
+    
+    UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] firstObject];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:rootView  name:RCTContentDidAppearNotification object:rootView];
+    
+    [rootView setLoadingView:view];
+}
 
 + (void)open:(RCTRootView *)v withImageNamed:(NSString *)imageName {
     rootView = v;
