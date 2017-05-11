@@ -16,6 +16,14 @@ RCT_EXPORT_MODULE(SplashScreen)
     [RCTSplashScreen open:v withImageNamed:@"splash"];
 }
 
++ (void)open:(RCTRootView *)v withView:(UIView *)launchScreen {
+    rootView = v;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:rootView  name:RCTContentDidAppearNotification object:rootView];
+    
+    [rootView setLoadingView:launchScreen];
+}
+
 
 + (void)open:(RCTRootView *)v withImageNamed:(NSString *)imageName {
     rootView = v;
