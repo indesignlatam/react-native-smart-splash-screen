@@ -10,6 +10,7 @@ typedef NS_ENUM(NSInteger, RCTCameraAspect) {
 };
 
 + (void)open:(RCTRootView *)v;
++ (void)open:(RCTRootView *)v withView: (UIView *)launchScreen;
 + (void)open:(RCTRootView *)v withImageNamed:(NSString *)imgName;
 
 @end
